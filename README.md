@@ -11,11 +11,11 @@ Business Analysts at Airbnb want to understand the impact COVID-19 had on bookin
 during the timespan of 2020-2021 in Tokyo, Japan. 
 
 ### Questions to answer
-- Trends to find out:
--- Active vs inactive listings
--- Bookings
--- Positive COVID-19 cases
-- Correlate trends to each other:
--- Is there a negative correlation between positive COVID-19 cases and bookings or active listings?
--- Does a listings shortage or oversupply exist? If yes, how does it relate to positive COVID-19 cases?
+1. Trends to find out:
+   - Active vs inactive listings
+   - Bookings
+   - Positive COVID-19 cases
+2. Correlate trends to each other:
+   - Is there a negative correlation between positive COVID-19 cases and bookings or active listings?
+   - Does a listings shortage or oversupply exist? If yes, how does it relate to positive COVID-19 cases?
   
