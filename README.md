@@ -1,6 +1,6 @@
 # Udacity Data Engineering Nanodegree - Capstone Project
 
-TBD
+WIP
 
 ## Datasets
 - [Tokyo Airbnb Open Data: Tokyo Airbnb as of 28 October 2021](https://www.kaggle.com/tsarromanov/tokyo-airbnb-open-data)
@@ -19,3 +19,6 @@ during the timespan of 2020-2021 in Tokyo, Japan.
    - Is there a negative correlation between positive COVID-19 cases and bookings or active listings?
    - Does a listings shortage or oversupply exist? If yes, how does it relate to positive COVID-19 cases?
   
+## Technology Stack
+- Dataflow Automation Tool: [Prefect](https://www.prefect.io/)
+- DB: Amazon Redshift
