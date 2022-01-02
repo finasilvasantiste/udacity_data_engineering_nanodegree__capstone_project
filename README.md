@@ -22,3 +22,4 @@ during the timespan of 2020-2021 in Tokyo, Japan.
 ## Technology Stack
 - Dataflow Automation Tool: [Prefect](https://www.prefect.io/)
 - DB: Amazon Redshift
+- File Storage: S3
