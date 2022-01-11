@@ -10,8 +10,19 @@ WIP
    - `covid_jpn_prefecture.csv`: Covid info by prefecture with columns `Date` (timestamp), `Prefecture` (string), `Positive` (integer), `Tested` (integer).
       - filter `Prefecture` for `Tokyo`.
       - filter `Date` for timeframe 2021-10-28 to 2021-12-31.
-
 *Note:* Ideally the dataset should contain records for a longer time period than just 2 months, but the kaggle `Tokyo Airbnb` dataset only has a limited amount of data.
+
+## Data Model
+
+### Table `dim_aggr_listings_availability`
+- columns: `date` (timestamp), `listings_total_count` (integer), `listings_available_count` (integer)
+   - `listings_total_count` is the `COUNT()` of all existing listings for a specific date.
+   - `listings_available_count` is the `COUNT()` of all listings `where available == True` for a specific date.
+
+### Table `dim_tokyo_covid_data`
+- columns: `date` (timestamp), `total_tested` (integer), `total_tested_positive` (integer)
+   - Records are filtered by `Prefecture == Tokyo` prior to insertion.
+
 
 ## Scenario
 Business Analysts at Airbnb want to understand the impact COVID-19 had on bookings and listings 
