@@ -15,16 +15,16 @@ WIP
 ## Data Model
 
 ### Table `dim_aggr_listings_availability`
-- columns: `date` (timestamp), `listings_total` (integer), `listings_available` (integer)
+- columns: `date` (timestamp, primary key), `listings_total` (integer), `listings_available` (integer)
    - `listings_total` is the `COUNT()` of all existing listings for a specific date.
    - `listings_available` is the `COUNT()` of all listings `where available == True` for a specific date.
 
 ### Table `dim_tokyo_covid_data`
-- columns: `date` (timestamp), `tested_total` (integer), `tested_positive` (integer)
+- columns: `date` (timestamp, primary key), `tested_total` (integer), `tested_positive` (integer)
    - Records are filtered by `Prefecture == Tokyo` prior to insertion.
 
 ### Table `fact_tokyo_airbnb_availability_and_covid_rate`
-- columns: `date` (timestamp), `listings_availability_rate` (float), `positive_covid_cases_rate` (float)
+- columns: `date` (timestamp, primary key), `listings_availability_rate` (float), `positive_covid_cases_rate` (float)
    - `listings_availability_rate` shows the ratio of `listings_available`/ `listings_total` for a specific date.
    - `positive_covid_cases_rate` shows the ratio of `tested_positive`/ `tested_total` for a specific date.
 
