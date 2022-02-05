@@ -97,11 +97,15 @@ and leave the filled out values as they are. Make sure not to use any quotation 
 
 # How to run the app
 
-1. Create an aws redshift cluster and its necessary aws resources by running
-   `bash scripts/create_aws_redshift_cluster.sh`. Running that will also populate the file `aws_role_arn.json`.
+### Create redshift cluster
+Create an aws redshift cluster and its necessary aws resources by running:
+```bash scripts/create_aws_redshift_cluster.sh```
+Running that will also populate the file `aws_role_arn.json`.
    
-2. WIP
+### Run ETL pipeline
+WIP
 
-3. Delete the aws redshift cluster and its necessary aws resources by running
-   `bash scripts/delete_aws_redshift_cluster.sh`.
+### Delete redshift cluster
+Delete the aws redshift cluster and its necessary aws resources by running:
+```bash scripts/delete_aws_redshift_cluster.sh```
    
