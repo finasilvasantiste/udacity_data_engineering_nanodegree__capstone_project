@@ -2,11 +2,16 @@
 
 # Index
 - [Project Write Up](./README.md#project-write-up)
+   - [Scenario/Use Case](./README.md#scenariouse-case)
+   - [Datasets](./README.md#datasets)
+   - [Data Model](./README.md#data-model)
+   - [Technology Stack](./README.md#technology-stack)
+   - [ETL Pipeline](./README.md#etl-pipeline)  
 - [Project Setup](./README.md#project-setup)
 - [How to run the app](./README.md#how-to-run-the-app)
 
 # Project Write Up
-## Scenario/ Use Case
+## Scenario/Use Case
 Business Analysts at Airbnb want to understand the impact COVID-19 had on bookings and listings 
 during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth database with the relevant data.
 
