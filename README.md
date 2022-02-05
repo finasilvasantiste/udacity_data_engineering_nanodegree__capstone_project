@@ -1,7 +1,5 @@
 # Udacity Data Engineering Nanodegree - Capstone Project
 
-WIP
-
 # Project Write Up
 ## Scenario/ Use Case
 Business Analysts at Airbnb want to understand the impact COVID-19 had on bookings and listings 
