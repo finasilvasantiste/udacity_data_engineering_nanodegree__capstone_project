@@ -76,3 +76,19 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
       - Confirm result set is not empty.
 
 # Project Setup
+
+## Option A: Docker Setup *(recommended)*
+Make sure you have [Docker](https://www.docker.com/) installed.
+Run the following command in a terminal to build and run a new container:
+```
+bash scripts/run_app_in_docker.sh
+```
+*Note: I recommend this setup to ensure that none of your current local dependencies
+gets changed/updated inadvertently.*
+
+## Option B: Local dependencies setup
+Make sure you have [Pipenv](https://pipenv.pypa.io/en/latest/) and Python 3.9 installed.
+Run the following command in a terminal to install all Python dependencies locally:
+```
+pipenv install
+```
