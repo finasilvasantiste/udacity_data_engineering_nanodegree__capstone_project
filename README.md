@@ -99,8 +99,9 @@ and leave the filled out values as they are. Make sure not to use any quotation 
 
 ### Create redshift cluster
 Create an aws redshift cluster and its necessary aws resources by running:
-
-```bash scripts/create_aws_redshift_cluster.sh```
+```
+bash scripts/create_aws_redshift_cluster.sh
+```
 
 Running that will also populate the file `aws_role_arn.json`.
    
@@ -109,6 +110,7 @@ WIP
 
 ### Delete redshift cluster
 Delete the aws redshift cluster and its necessary aws resources by running:
-
-```bash scripts/delete_aws_redshift_cluster.sh```
+```
+bash scripts/delete_aws_redshift_cluster.sh
+```
    
