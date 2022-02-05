@@ -2,6 +2,7 @@
 
 WIP
 
+# Project Write Up
 ## Scenario/ Use Case
 Business Analysts at Airbnb want to understand the impact COVID-19 had on bookings and listings 
 during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth database with the relevant data.
@@ -73,3 +74,5 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
    - Quality checks to run before inserting data into db:
       - Identify and remove duplicate rows.
       - Confirm result set is not empty.
+
+# Project Setup

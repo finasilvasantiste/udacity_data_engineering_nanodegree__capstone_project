@@ -1,0 +1,18 @@
+[S3]
+LOG_DATA=s3://udacity-dend/log_data
+LOG_JSONPATH=s3://udacity-dend/log_json_path.json
+SONG_DATA=s3://udacity-dend/song_data
+
+[AWS_CREDS_ADMIN]
+USER_NAME=(name of an aws admin user)
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY_ID=
+AWS_REGION=us-east-1
+
+[REDSHIFT_CLUSTER]
+USER_NAME=sparkify-user
+PASSWORD=
+CLUSTER_IDENTIFIER=sparkify-cluster
+ADMIN_USER_ARN=(Should be the arn of the user set in the section AWS_CREDS_ADMIN)
+IAM_ROLE_NAME=sparkify_redshift_s3_role
+DB_NAME=sparkify-db
