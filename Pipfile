@@ -4,6 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+psycopg2 = "*"
+configparser = "*"
+boto3 = "*"
+pandas = "*"
 
 [dev-packages]
 
