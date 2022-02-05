@@ -77,7 +77,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 
 # Project Setup
 
-## Option A: Docker Setup *(recommended)*
+### Option A: Docker Setup *(recommended)*
 Make sure you have [Docker](https://www.docker.com/) installed.
 Run the following command in a terminal to build and run a new container:
 ```
@@ -86,9 +86,18 @@ bash scripts/run_app_in_docker.sh
 *Note: I recommend this setup to ensure that none of your current local dependencies
 gets changed/updated inadvertently.*
 
-## Option B: Local dependencies setup
+### Option B: Local dependencies setup
 Make sure you have [Pipenv](https://pipenv.pypa.io/en/latest/) and Python 3.9 installed.
 Run the following command in a terminal to install all Python dependencies locally:
 ```
 pipenv install
 ```
+
+### Add your credentials
+Make a copy of the file `dwh.cfg.sample` and call it just `dwh.cfg`. Replace the empty/indicated values with your credentials, 
+and leave the filled out values as they are. Make sure not to use any quotation marks.
+
+# How to run the app
+
+1. Create all aws resources needed to set up redshift by running
+   `bash/create_aws_redshift.sh`. Running that will also populate the file `aws_role_arn.json`.
