@@ -1,5 +1,10 @@
 # Udacity Data Engineering Nanodegree - Capstone Project
 
+# Index
+- [Project Write Up](./README.md#project-write-up)
+- [Project Setup](./README.md#project-setup)
+- [How to run the app](./README.md#how-to-run-the-app)
+
 # Project Write Up
 ## Scenario/ Use Case
 Business Analysts at Airbnb want to understand the impact COVID-19 had on bookings and listings 
@@ -75,7 +80,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 
 # Project Setup
 
-### Option A: Docker Setup *(recommended)*
+## Option A: Docker Setup *(recommended)*
 Make sure you have [Docker](https://www.docker.com/) installed.
 Run the following command in a terminal to build and run a new container:
 ```
@@ -84,20 +89,20 @@ bash scripts/run_app_in_docker.sh
 *Note: I recommend this setup to ensure that none of your current local dependencies
 gets changed/updated inadvertently.*
 
-### Option B: Local dependencies setup
+## Option B: Local dependencies setup
 Make sure you have [Pipenv](https://pipenv.pypa.io/en/latest/) and Python 3.9 installed.
 Run the following command in a terminal to install all Python dependencies locally:
 ```
 pipenv install
 ```
 
-### Add your credentials
+## Add your credentials
 Make a copy of the file `dwh.cfg.sample` and call it just `dwh.cfg`. Replace the empty/indicated values with your credentials, 
 and leave the filled out values as they are. Make sure not to use any quotation marks.
 
 # How to run the app
 
-### Create redshift cluster
+## Create redshift cluster
 Create an aws redshift cluster and its necessary aws resources by running:
 ```
 bash scripts/create_aws_redshift_cluster.sh
@@ -105,10 +110,10 @@ bash scripts/create_aws_redshift_cluster.sh
 
 Running that will also populate the file `aws_role_arn.json`.
    
-### Run ETL pipeline
+## Run ETL pipeline
 WIP
 
-### Delete redshift cluster
+## Delete redshift cluster
 Delete the aws redshift cluster and its necessary aws resources by running:
 ```
 bash scripts/delete_aws_redshift_cluster.sh
