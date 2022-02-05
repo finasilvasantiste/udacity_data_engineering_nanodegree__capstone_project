@@ -15,7 +15,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
    - Is there a negative correlation between positive COVID-19 cases and bookings or active listings?
    - Does a listings shortage or oversupply exist? If yes, how does it relate to positive COVID-19 cases?
 
-## Datasets to use
+## Datasets
 - [Tokyo Airbnb Open Data: Tokyo Airbnb as of 28 October 2021](https://www.kaggle.com/tsarromanov/tokyo-airbnb-open-data)
    - `calendar.csv`: Listings' calendar information.
       - Dataset has more than 3 million rows.
@@ -30,7 +30,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 
 *Note:* Ideally the source-of-truth database should contain records for a longer time period than just 2 months, but the kaggle `Tokyo Airbnb` dataset only has a limited amount of data. For the purpose of this exercise I'll continue with this dataset.
 
-## Data Model to create
+## Data Model
 
 ### Table `dim_aggregated_listings_availability`
 - Columns: `date` (timestamp, primary key), `listings_total` (integer), `listings_available` (integer)
@@ -38,7 +38,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
    - `listings_available` is the `COUNT()` of all listings `where available == True` for a specific date.
 - Source dataset: Tokyo Airbnb Open Data: Tokyo Airbnb as of 28 October 2021.
 
-### Table `dim_tokyo_covid_data`
+### Table `dim_tokyo_covid_by_prefecture`
 - Columns: `date` (timestamp, primary key), `tested_total` (integer), `tested_positive` (integer)
    - Records are filtered by `Prefecture == Tokyo` prior to insertion.
 - Source dataset: COVID-19 dataset in Japan - Number of Novel Corona Virus 2019 cases in Japan.
@@ -47,16 +47,29 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 - Columns: `date` (timestamp, primary key), `listings_availability_rate` (float), `positive_covid_cases_rate` (float)
    - `listings_availability_rate` shows the ratio of `listings_available`/ `listings_total` for a specific date.
    - `positive_covid_cases_rate` shows the ratio of `tested_positive`/ `tested_total` for a specific date.
-- Source dataset: table `dim_aggregated_listings_availability` and table `dim_tokyo_covid_data`.
+- Source dataset: table `dim_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture`.
 
   
 ## Technology Stack
 - Dataflow Automation Tool: [Prefect](https://www.prefect.io/).
    - In this course the only dataflow automation tool we've worked with is Apache Airflow. While that's probably the most commonly used one, it's not the only tool of that type. [Prefect](https://www.prefect.io/) provides all the functionality Airflow provides while offering a slimmed down version that runs just as any other Python file without requiring neither a dedicated server nor a UI. The ease-of-setup and ease-of-use is what makes me prefer Prefect over Airflow for this project.
 - DB: Amazon Redshift.
-   - This where the source-of-truth database will live. 
+   - This where the source-of-truth database and staging tables will live. 
 - File Storage: S3.
    - The datasets are too big (more than 200mb) to upload to a github repository. To make them accessible for the ETL pipeline I'll use S3 file storage.
 
 
-
+## ETL Pipeline
+1. Load datasets into staging tables:
+   - `calendar.csv` is loaded into the staging table `tokyo_airbnb_calendar`.
+   - `covid_jpn_prefecture.csv` is loaded into the staging table `covid_by_japan_prefecture`. 
+2. Run quality checks on staging tables:
+   - Compare number of rows in csv file with number rows in staging table.
+   - Identify and remove duplicate rows in staging table.
+3. Create source-of-truth tables:
+   - Use table `tokyo_airbnb_calendar` to create the data for `dim_aggregated_listings_availability` table with columns as described in the Data Model.
+   - Use table `covid_by_japan_prefecture` to create the data for `dim_tokyo_covid_by_prefecture` table with columns as described in the Data Model.
+   - Use table `dim_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture` to create table `fact_tokyo_airbnb_availability_and_covid_rate` with columns as described in the Data Model.
+   - Quality checks to run before inserting data into db:
+      - Identify and remove duplicate rows.
+      - Confirm result set is not empty.
