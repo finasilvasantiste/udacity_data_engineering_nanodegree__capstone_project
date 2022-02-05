@@ -1,2 +1,2 @@
 docker-compose build
-docker-compose run disclosure_analysis
+docker-compose run udacity_capstone_project
