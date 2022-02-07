@@ -1,18 +1,17 @@
 [S3]
-LOG_DATA=s3://udacity-dend/log_data
-LOG_JSONPATH=s3://udacity-dend/log_json_path.json
-SONG_DATA=s3://udacity-dend/song_data
+CALENDAR_DATA=(your bucket location)
+COVID_JPN_DATA=(your bucket location)
 
 [AWS_CREDS_ADMIN]
 USER_NAME=(name of an aws admin user)
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY_ID=
-AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=(your credentials)
+AWS_SECRET_ACCESS_KEY_ID=(your credentials)
+AWS_REGION=(your region, must match bucket region)
 
 [REDSHIFT_CLUSTER]
-USER_NAME=sparkify-user
-PASSWORD=
-CLUSTER_IDENTIFIER=sparkify-cluster
+USER_NAME=(your user name)
+PASSWORD=(your password)
+CLUSTER_IDENTIFIER=(your cluster name)
 ADMIN_USER_ARN=(Should be the arn of the user set in the section AWS_CREDS_ADMIN)
-IAM_ROLE_NAME=sparkify_redshift_s3_role
-DB_NAME=sparkify-db
+IAM_ROLE_NAME=(your role name)
+DB_NAME=(your db name)
