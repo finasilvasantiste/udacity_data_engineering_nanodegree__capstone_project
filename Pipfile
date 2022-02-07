@@ -8,6 +8,7 @@ psycopg2 = "*"
 configparser = "*"
 boto3 = "*"
 pandas = "*"
+prefect = "*"
 
 [dev-packages]
 
