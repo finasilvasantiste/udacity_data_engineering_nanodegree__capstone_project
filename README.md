@@ -116,7 +116,10 @@ bash scripts/create_aws_redshift_cluster.sh
 Running that will also populate the file `aws_role_arn.json`.
    
 ## Run ETL pipeline
-WIP
+Run the ETL pipeline to create the source-of-truth Airbnb Tokyo Covid database by running:
+```
+bash scripts/run_etl_pipeline.sh
+```
 
 ## Delete redshift cluster
 Delete the aws redshift cluster and its necessary aws resources by running:
