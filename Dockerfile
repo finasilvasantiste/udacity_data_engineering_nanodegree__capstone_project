@@ -6,6 +6,8 @@ COPY Pipfile.lock .
 RUN python -m pip install --upgrade pip
 RUN pip install -U pipenv==2018.11.26
 RUN pipenv install
+RUN apt-get update
+RUN apt-get install -y graphviz
 COPY . .
 ENV PYTHONPATH=$PATHONPATH:`pwd`
 CMD pipenv run bash

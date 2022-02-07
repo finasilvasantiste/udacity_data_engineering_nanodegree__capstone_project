@@ -7,7 +7,8 @@ def run_etl_pipeline():
     the source-of-truth Airbnb Tokyo Covid database.
     :return:
     """
-    flow.run()
+    # flow.run()
+    flow.visualize(filename='etl_pipeline_graph', format='jpg')
 
 
 if __name__ == "__main__":

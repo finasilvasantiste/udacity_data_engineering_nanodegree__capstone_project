@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a64e5b9275258d0d3c251d5c95939e516a3d133aa9a61b6b7a167c7d3ef282ee"
+            "sha256": "60648b450b753e5bcc8650c16ade424c3ec191ff414f7cfa5df88f8833a24e24"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -110,6 +110,13 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2022.1.0"
+        },
+        "graphviz": {
+            "hashes": [
+                "sha256:09ed0cde452d015fe77c4845a210eb642f28d245f5bc250d4b97808cb8f49078",
+                "sha256:f34088c08be2ec16279dfa9c3b4ff3d1453c5c67597a33e2819b000e18d4c546"
+            ],
+            "version": "==0.19.1"
         },
         "heapdict": {
             "hashes": [
@@ -382,6 +389,9 @@
             "version": "==2.1.2"
         },
         "prefect": {
+            "extras": [
+                "viz"
+            ],
             "hashes": [
                 "sha256:a4c2c63a2f950cfacf7b10710b6c5cadbdc55033503212b54a8397f0b6b17d8f",
                 "sha256:fefe6fba05a01de19640935d043a9034b5e2990c3c9e46a42420d291ff0fc08b"

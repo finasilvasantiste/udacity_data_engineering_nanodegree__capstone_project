@@ -8,7 +8,7 @@ psycopg2 = "*"
 configparser = "*"
 boto3 = "*"
 pandas = "*"
-prefect = "*"
+prefect = {extras = ["viz"], version = "*"}
 
 [dev-packages]
 
