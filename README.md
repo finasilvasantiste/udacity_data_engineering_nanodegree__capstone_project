@@ -67,6 +67,9 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 - File Storage: S3.
    - The datasets are too big (more than 200mb) to upload to a github repository. To make them accessible for the ETL pipeline I'll use S3 file storage.
 
+## S3 Bucket
+The base dataset will live in an S3 bucket. This way, we can more easily upload the data
+into the staging tables in the redshift cluster. (AWS cloud technology is optimized to work seamlessly with each other.) 
 
 ## ETL Pipeline
 1. Load datasets into staging tables:
@@ -106,6 +109,7 @@ Make a copy of the file `dwh.cfg.sample` and call it just `dwh.cfg`. Replace the
 and leave the filled out values as they are. Make sure not to use any quotation marks.
 
 # How to run the app
+Pick one of the setup options outlined above first.
 
 ## Create redshift cluster
 Create an aws redshift cluster and its necessary aws resources by running:
