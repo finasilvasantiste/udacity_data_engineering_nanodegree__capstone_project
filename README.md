@@ -68,19 +68,19 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
    - The datasets are too big (more than 200mb) to upload to a github repository. To make them accessible for the ETL pipeline I'll use S3 file storage.
 
 ## S3 Bucket
-The base dataset will live in an S3 bucket. This way, we can more easily upload the data
+The base dataset (`calendar.csv` and `covid_jpn_prefecture.csv`) will lives an S3 bucket. This way, we can more easily upload the data
 into the staging tables in the redshift cluster. (AWS cloud technology is optimized to work seamlessly with each other.) 
 
 ## ETL Pipeline
 1. Load datasets into staging tables:
-   - `calendar.csv` is loaded into the staging table `tokyo_airbnb_calendar`.
-   - `covid_jpn_prefecture.csv` is loaded into the staging table `covid_by_japan_prefecture`. 
+   - The airbnb listings calendar data living on S3 is loaded into the staging table `tokyo_airbnb_calendar`.
+   - The covid japan data living on S3 is loaded into the staging table `covid_japan_by_prefecture`. 
 2. Run quality checks on staging tables:
    - Compare number of rows in csv file with number rows in staging table.
    - Identify and remove duplicate rows in staging table.
 3. Create source-of-truth tables:
    - Use table `tokyo_airbnb_calendar` to create the data for `dim_aggregated_listings_availability` table with columns as described in the Data Model.
-   - Use table `covid_by_japan_prefecture` to create the data for `dim_tokyo_covid_by_prefecture` table with columns as described in the Data Model.
+   - Use table `covid_japan_by_prefecture` to create the data for `dim_tokyo_covid_by_prefecture` table with columns as described in the Data Model.
    - Use table `dim_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture` to create table `fact_tokyo_airbnb_availability_and_covid_rate` with columns as described in the Data Model.
    - Quality checks to run before inserting data into db:
       - Identify and remove duplicate rows.
