@@ -8,7 +8,7 @@ def run_etl_pipeline():
     :return:
     """
     flow.run()
-    # flow.visualize(filename='graph', format='jpg')
+    flow.visualize(filename='graph', format='jpg')
 
 
 if __name__ == "__main__":
