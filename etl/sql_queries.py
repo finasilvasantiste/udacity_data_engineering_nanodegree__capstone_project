@@ -20,13 +20,14 @@ CREATE TABLE tokyo_airbnb_calendar (
 
 create_staging_covid_table = ("""
 CREATE TABLE covid_japan_by_prefecture (
-   listing_id NUMERIC PRIMARY KEY,
    date TIMESTAMP,
-   available BOOLEAN,
-   price VARCHAR,
-   adjusted_price VARCHAR,
-   minimum_nights NUMERIC,
-   maximum_nights NUMERIC
+   Prefecture VARCHAR,
+   Positive NUMERIC,
+   Tested NUMERIC,
+   Discharged NUMERIC,
+   Fatal NUMERIC,
+   Hosp_require VARCHAR,
+   Hosp_severe VARCHAR
 );
 """)
 

@@ -87,7 +87,7 @@ def load_covid_data_into_staging_table():
     :return:
     """
     iam_role_arn = load_iam_role_arn()
-    file_path = config.get('S3', 'CALENDAR_DATA')
+    file_path = config.get('S3', 'COVID_JPN_DATA')
     region = config.get('AWS_CREDS_ADMIN', 'AWS_REGION')
 
     execute_sql_query(copy_covid_data_staging_table.format(
