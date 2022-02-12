@@ -63,12 +63,9 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 - Dataflow Automation Tool: [Prefect](https://www.prefect.io/).
    - In this course the only dataflow automation tool we've worked with is Apache Airflow. While that's probably the most commonly used one, it's not the only tool of that type. [Prefect](https://www.prefect.io/) provides all the functionality Airflow provides while offering a slimmed down version that runs just as any other Python file without requiring neither a dedicated server nor a UI. The ease-of-setup and ease-of-use is what makes me prefer Prefect over Airflow for this project.
 - DB: Amazon Redshift.
-   - This where the source-of-truth database and staging tables will live. 
+   - This where the source-of-truth database and staging tables live. 
 - File Storage: S3.
-   - The datasets are too big (more than 200mb) to upload to a github repository. To make them accessible for the ETL pipeline I'll use S3 file storage.
-
-## S3 Bucket
-The base dataset (`calendar.csv` and `covid_jpn_prefecture.csv`) will lives an S3 bucket. This way, we can more easily upload the data
+   - The base dataset (`calendar.csv` and `covid_jpn_prefecture.csv`) lives an S3 bucket. This way, we can more easily upload the data
 into the staging tables in the redshift cluster. (AWS cloud technology is optimized to work seamlessly with each other.) 
 
 ## ETL Pipeline
