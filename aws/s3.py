@@ -8,10 +8,10 @@ def print_s3_bucket_content():
     """
     s3_resource = AWSResource(resource_name='s3').resource
 
-    bucket = s3_resource.Bucket('udacity-dend')
+    bucket = s3_resource.Bucket('fina-udacity-capstone-data')
 
-    # prefix = "log_data"
-    prefix = "song_data"
+    # prefix = "airbnb_tokyo_listings_data"
+    prefix = "covid_japan_data"
 
     for obj in bucket.objects.filter(Prefix=prefix):
         print(obj)

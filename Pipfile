@@ -9,6 +9,7 @@ configparser = "*"
 boto3 = "*"
 pandas = "*"
 prefect = {extras = ["viz"], version = "*"}
+redshift-connector = {extras = ["full"], version = "*"}
 
 [dev-packages]
 
