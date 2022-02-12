@@ -1,3 +1,4 @@
 .idea
 dwh.cfg
 aws_role_arn.json
+.DS_STORE
