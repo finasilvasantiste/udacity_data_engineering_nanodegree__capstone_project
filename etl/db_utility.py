@@ -30,3 +30,4 @@ def execute_sql_query(sql_query):
     cursor: redshift_connector.Cursor = conn.cursor()
     cursor.execute(sql_query)
     conn.commit()
+    conn.close()
