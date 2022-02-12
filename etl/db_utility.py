@@ -31,3 +31,34 @@ def execute_sql_query(sql_query):
     cursor.execute(sql_query)
     conn.commit()
     conn.close()
+
+
+def execute_sql_query_and_get_result(sql_query):
+    """
+    Creates a connection to db on redshift cluster,
+    executes given sql query and returns result.
+    :param sql_query: sql query to execute
+    :return: query result
+    """
+    print('++++++ QUERY TO EXECUTE ++++++')
+    print(sql_query)
+
+    conn = redshift_connector.connect(
+        host=host,
+        database=db_name,
+        user=db_user_name,
+        password=password
+    )
+
+    cursor: redshift_connector.Cursor = conn.cursor()
+    cursor.execute(sql_query)
+    conn.commit()
+
+    result: tuple = cursor.fetchall()
+
+    print('++++++ RESULT ++++++')
+    print(result)
+
+    conn.close()
+
+    return result

@@ -4,7 +4,8 @@ from etl.staging_tasks import create_calendar_staging_table,\
     drop_calendar_staging_table, \
     drop_covid_staging_table, \
     create_covid_staging_table, \
-    load_covid_data_into_staging_table
+    load_covid_data_into_staging_table, \
+    run_quality_checks_for_staging_tables
 
 # CREATE FLOW
 flow = Flow('ETL Pipeline')
@@ -34,3 +35,8 @@ flow.set_dependencies(
 flow.set_dependencies(
     task=load_covid_data_into_staging_table,
     upstream_tasks=[create_covid_staging_table])
+
+flow.set_dependencies(
+    task=run_quality_checks_for_staging_tables,
+    upstream_tasks=[load_calendar_data_into_staging_table,
+                    load_covid_data_into_staging_table])

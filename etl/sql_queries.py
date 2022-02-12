@@ -44,3 +44,7 @@ FROM '{}'
 credentials 'aws_iam_role={}' 
 CSV IGNOREHEADER 1 compupdate off region '{}';
 """)
+
+count_rows = ("""
+SELECT COUNT(*) FROM {};
+""")

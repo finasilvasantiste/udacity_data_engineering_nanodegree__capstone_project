@@ -1,13 +1,15 @@
 from prefect import task
 import configparser
 import json
-from etl.db_utility import execute_sql_query
+from etl.db_utility import execute_sql_query, \
+    execute_sql_query_and_get_result
 from etl.sql_queries import create_staging_calendar_table, \
     copy_calendar_data_staging_table, \
     drop_staging_calendar_table, \
     drop_staging_covid_table, \
     create_staging_covid_table, \
-    copy_covid_data_staging_table
+    copy_covid_data_staging_table, \
+    count_rows
 
 config = configparser.ConfigParser()
 config.read_file((open(r'dwh.cfg')))
@@ -93,3 +95,22 @@ def load_covid_data_into_staging_table():
     execute_sql_query(copy_covid_data_staging_table.format(
         file_path, iam_role_arn, region
     ))
+
+
+@task
+def run_quality_checks_for_staging_tables():
+    """
+    Runs quality checks on existing staging tables.
+    :return:
+    """
+    # count rows check
+    calendar_staging_table = 'tokyo_airbnb_calendar'
+    covid_staging_table = 'covid_japan_by_prefecture'
+
+    calender_count = execute_sql_query_and_get_result(
+        count_rows.format(calendar_staging_table)
+    )
+
+    covid_count = execute_sql_query_and_get_result(
+        count_rows.format(covid_staging_table)
+    )
