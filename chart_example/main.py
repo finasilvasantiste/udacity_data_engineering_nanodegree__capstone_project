@@ -4,7 +4,12 @@ import pandas as pd
 from etl.utilities.db_utility import execute_sql_query_and_get_result_as_df
 
 
-def create_line_chart():
+def create_rates_line_chart():
+    """
+    Creates a line chart showing tokyo listings availability
+    and covid rates.
+    :return:
+    """
     query ='''
     SELECT * FROM fact_tokyo_listings_availability_and_covid_rates;
     '''
@@ -25,4 +30,4 @@ def create_line_chart():
 
 
 if __name__ == "__main__":
-    create_line_chart()
+    create_rates_line_chart()
