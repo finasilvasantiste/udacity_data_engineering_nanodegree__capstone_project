@@ -57,11 +57,14 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
    - Records are filtered by `Prefecture == Tokyo` prior to insertion.
 - Source dataset: 'COVID-19 dataset in Japan - Number of Novel Corona Virus 2019 cases in Japan'.
 
-### Table `fact_tokyo_listings_availability_and_covid_rate`
+### Table `fact_tokyo_listings_availability_and_covid_rates`
 - Contains tokyo listings availability rate and covid rate by date.
-- Columns: `date` (timestamp, primary key), `listings_availability_rate` (float), `positive_covid_cases_rate` (float)
-   - `listings_availability_rate` shows the ratio of `listings_available_count`/ `listings_total_count` for a specific date.
-   - `positive_covid_cases_rate` shows the ratio of `tested_positive`/ `tested_total` for a specific date.
+- Columns: `date` (timestamp, primary key), `listings_availability_ratio` (float), `positive_covid_cases_ratio` (float),
+  `prev_day_percentage_change_listings_availability` (float), `prev_day_percentage_change_positive_covid_cases` (float).
+   - `listings_availability_ratio` shows the ratio of `listings_available_count`/ `listings_total_count` for a specific date.
+   - `positive_covid_cases_ratio` shows the ratio of `tested_positive`/ `tested_total` for a specific date.
+   - `prev_day_percentage_change_listings_availability` shows the percentage increase compared to the previous day for a specific date.
+   - `prev_day_percentage_change_positive_covid_cases` shows the percentage increase compared to the previous day for a specific date.
 - Source dataset: table `dim_tokyo_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture`.
 
   

@@ -74,6 +74,20 @@ AND available is True
 GROUP BY "date") available ON total."date"=available."date";
 """)
 
-tokyo_listings_availability_and_covid_rate = ("""
-
+tokyo_listings_availability_and_covid_rates = ("""
+SELECT covid_cases."date", positive_covid_cases_ratio, prev_day_percentage_change_positive_covid_cases,
+listings_availability_ratio, prev_day_percentage_change_listings_availability
+FROM (SELECT *, cast((positive_covid_cases_ratio - LAG(positive_covid_cases_ratio, 1) 
+over (order by "date", positive_covid_cases_ratio)) * 100 as decimal(30,2)) 
+as prev_day_percentage_change_positive_covid_cases
+FROM (SELECT "date", tested_positive/tested_total as positive_covid_cases_ratio
+FROM dim_tokyo_covid_by_prefecture) sub) covid_cases JOIN
+(SELECT *, cast((listings_availability_ratio - LAG(listings_availability_ratio, 1) 
+over (order by "date", listings_availability_ratio)) * 100 as decimal(30,2)) 
+as prev_day_percentage_change_listings_availability
+FROM (SELECT "date", cast(listings_available_count as decimal(30,6))/cast(listings_total_count as decimal(30,6)) 
+as listings_availability_ratio
+FROM dim_tokyo_aggregated_listings_availability) sub) listings_availability 
+ON covid_cases."date"=listings_availability."date"
+ORDER BY "date" ASC;
 """)

@@ -2,7 +2,7 @@ from prefect import task
 from etl.utilities.sql_queries import \
     covid_data_filtered_by_tokyo, \
     aggr_tokyo_listings_availability, \
-    tokyo_listings_availability_and_covid_rate
+    tokyo_listings_availability_and_covid_rates
 from etl.utilities.db_utility import \
     execute_sql_query_and_get_result_as_df, \
     upload_df_to_table
@@ -47,16 +47,15 @@ def create_table_tokyo_aggr_listings_availability():
 
 
 @task
-def create_table_tokyo_listings_availability_and_covid_rate():
+def create_table_tokyo_listings_availability_and_covid_rates():
     """
     Creates table that contains Tokyo listings availability
-    rate and covid rate by date.
+    rate and covid rates by date.
     :return:
     """
-    pass
-    # result_df = execute_sql_query_and_get_result_as_df(
-    #     tokyo_listings_availability_and_covid_rate
-    # )
+    result_df = execute_sql_query_and_get_result_as_df(
+        tokyo_listings_availability_and_covid_rates
+    )
 
     # upload_df_to_table(df=result_df,
     #                    table_name='dim_tokyo_aggregated_listings_availability')
