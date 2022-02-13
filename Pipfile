@@ -11,6 +11,7 @@ pandas = "*"
 prefect = {extras = ["viz"], version = "*"}
 redshift-connector = {extras = ["full"], version = "*"}
 sqlalchemy = "*"
+matplotlib = "*"
 
 [dev-packages]
 

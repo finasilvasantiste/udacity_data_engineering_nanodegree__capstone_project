@@ -150,4 +150,3 @@ Delete the aws redshift cluster and its necessary aws resources by running:
 ```
 bash scripts/delete_aws_redshift_cluster.sh
 ```
-   
