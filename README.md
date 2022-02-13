@@ -101,12 +101,14 @@ update frequency of the source datasets. If the source datasets are updated dail
 require the most up-to-date data, scheduling the ETL pipeline to run once a day could be sufficient to meet their needs.
 
 ### Graph
-![ETL Pipeline Graph](./graph.jpg?raw=true "Title")
+![ETL Pipeline Graph](./graph.jpg?raw=true "graph")
 - A node represents a task, the name inside the node represents the task name. 
 - Task names match the function names in the codebase.
 
 ## Example insights generated using source-of-truth db
-WIP
+Covid cases in tokyo vs available listings in tokyo:
+![Ratios](./line_chart.png?raw=true "ratios")
+
 
 ## Different scenarios (thought experiments given by assignment)
 How would I approach the problem differently under the following scenarios?:
@@ -171,4 +173,9 @@ docker cp (your container id):/udacity_capstone_project_local/graph.jpg graph.jp
 Delete the aws redshift cluster and its necessary aws resources by running:
 ```
 bash scripts/delete_aws_redshift_cluster.sh
+```
+
+## Create example chart using data from source-of-truth db
+```
+bash scripts/create_example_chart.sh
 ```
