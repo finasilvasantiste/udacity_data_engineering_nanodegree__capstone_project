@@ -48,3 +48,7 @@ CSV IGNOREHEADER 1 compupdate off region '{}';
 count_rows = ("""
 SELECT COUNT(*) FROM {};
 """)
+
+distinct_count_rows = ("""
+SELECT DISTINCT COUNT(*) FROM {};
+""")

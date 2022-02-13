@@ -48,6 +48,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 - Source dataset: Tokyo Airbnb Open Data: Tokyo Airbnb as of 28 October 2021.
 
 ### Table `dim_tokyo_covid_by_prefecture`
+- Contains covid data for Tokyo prefecture.
 - Columns: `date` (timestamp, primary key), `tested_total` (integer), `tested_positive` (integer)
    - Records are filtered by `Prefecture == Tokyo` prior to insertion.
 - Source dataset: COVID-19 dataset in Japan - Number of Novel Corona Virus 2019 cases in Japan.
