@@ -73,3 +73,7 @@ WHERE "date" BETWEEN '2021-10-28' AND '2021-12-31'
 AND available is True
 GROUP BY "date") available ON total."date"=available."date";
 """)
+
+tokyo_listings_availability_and_covid_rate = ("""
+
+""")

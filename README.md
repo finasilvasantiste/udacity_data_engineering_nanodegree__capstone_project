@@ -41,25 +41,28 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 
 ## Data Model
 
-### Table `dim_aggregated_listings_availability`
+### Table `dim_tokyo_aggregated_listings_availability`
 - Contains count of total listings (both available and unavailable listings) and 
   count of only available listings by dates for listings in Tokyo.
-- Columns: `date` (timestamp, primary key), `listings_total` (integer), `listings_available` (integer)
-   - `listings_total` is the `COUNT()` of all existing listings for a specific date.
-   - `listings_available` is the `COUNT()` of all listings `where available == True` for a specific date.
-- Source dataset: Tokyo Airbnb Open Data: Tokyo Airbnb as of 28 October 2021.
+- Timeframe: 2021-10-28 - 2021-12-31.
+- Columns: `date` (timestamp, primary key), `listings_total_count` (integer), `listings_available_count` (integer)
+   - `listings_total_count` is the `COUNT()` of all existing listings for a specific date.
+   - `listings_available_count` is the `COUNT()` of all listings `where available == True` for a specific date.
+- Source dataset: 'Tokyo Airbnb Open Data: Tokyo Airbnb as of 28 October 2021'.
 
 ### Table `dim_tokyo_covid_by_prefecture`
 - Contains covid data for Tokyo prefecture.
+- Timeframe: 2021-10-28 - 2021-12-31.  
 - Columns: `date` (timestamp, primary key), `tested_total` (integer), `tested_positive` (integer)
    - Records are filtered by `Prefecture == Tokyo` prior to insertion.
-- Source dataset: COVID-19 dataset in Japan - Number of Novel Corona Virus 2019 cases in Japan.
+- Source dataset: 'COVID-19 dataset in Japan - Number of Novel Corona Virus 2019 cases in Japan'.
 
-### Table `fact_tokyo_airbnb_availability_and_covid_rate`
+### Table `fact_tokyo_listings_availability_and_covid_rate`
+- Contains tokyo listings availability rate and covid rate by date.
 - Columns: `date` (timestamp, primary key), `listings_availability_rate` (float), `positive_covid_cases_rate` (float)
-   - `listings_availability_rate` shows the ratio of `listings_available`/ `listings_total` for a specific date.
+   - `listings_availability_rate` shows the ratio of `listings_available_count`/ `listings_total_count` for a specific date.
    - `positive_covid_cases_rate` shows the ratio of `tested_positive`/ `tested_total` for a specific date.
-- Source dataset: table `dim_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture`.
+- Source dataset: table `dim_tokyo_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture`.
 
   
 ## Technology Stack
@@ -79,9 +82,9 @@ into the staging tables in the redshift cluster. (AWS cloud technology is optimi
    - Compare number of rows in csv file with number rows in staging table.
    - Identify and remove duplicate rows in staging table.
 3. Create source-of-truth tables:
-   - Use table `tokyo_airbnb_calendar` to create the data for `dim_aggregated_listings_availability` table with columns as described in the Data Model.
+   - Use table `tokyo_airbnb_calendar` to create the data for `dim_tokyo_aggregated_listings_availability` table with columns as described in the Data Model.
    - Use table `covid_japan_by_prefecture` to create the data for `dim_tokyo_covid_by_prefecture` table with columns as described in the Data Model.
-   - Use table `dim_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture` to create table `fact_tokyo_airbnb_availability_and_covid_rate` with columns as described in the Data Model.
+   - Use table `dim_tokyo_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture` to create table `fact_tokyo_listings_availability_and_covid_rate` with columns as described in the Data Model.
    - Quality checks to run before inserting data into db:
       - Identify and remove duplicate rows.
       - Confirm result set is not empty.
