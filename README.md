@@ -98,13 +98,26 @@ into the staging tables in the redshift cluster. (AWS cloud technology is optimi
 ### Frequency
 How often the ETL pipeline should be run depends on the analyst's need for up-to-date data and the
 update frequency of the source datasets. If the source datasets are updated daily, and the analysts
-require the most up-to-date data, scheduling the ETL pipeline to run once a day could meet their needs.
+require the most up-to-date data, scheduling the ETL pipeline to run once a day could be sufficient to meet their needs.
 
 ### Graph
 ![ETL Pipeline Graph](./graph.jpg?raw=true "Title")
 - A node represents a task, the name inside the node represents the task name. 
 - Task names match the function names in the codebase.
 
+## Example insights generated using source-of-truth db
+WIP
+
+## Different scenarios (thought experiments given by assignment)
+How would I approach the problem differently under the following scenarios?:
+1. If the data was increased by 100x.
+2. If the pipelines were run on a daily basis by 7am.
+3. If the database needed to be accessed by 100+ people.
+
+Possible approaches:
+1. If the data was increasde by 100x, I'd probably want to provide myself with a Spark cluster and move any tasks that rely on in-memory calculations (e.g. staging table quality checks) to be executed on that.
+2. If the pipeline needs to on a daily basis by 7am, I'd set up a schedule for it. (Schedules are a basic feature for most data flow automation tools.)
+3. If the database needed to be accessed by 100+ people, I'd probably keep the database in Redshift since it's a reliable analytics database. If the data contained sensitive data (e.g. Personal Identifiable Information) I might want to consider adding user roles to make sure that only authorized users can access it.
 
 # Project Setup
 
