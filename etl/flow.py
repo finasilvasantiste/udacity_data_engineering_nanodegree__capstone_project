@@ -1,5 +1,5 @@
 from prefect import Flow
-from etl.staging_tasks import create_calendar_staging_table,\
+from etl.tasks.staging_tables_tasks import create_calendar_staging_table,\
     load_calendar_data_into_staging_table, \
     drop_calendar_staging_table, \
     drop_covid_staging_table, \

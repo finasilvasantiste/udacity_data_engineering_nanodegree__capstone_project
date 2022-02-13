@@ -1,9 +1,9 @@
 from prefect import task
 import configparser
 import json
-from etl.db_utility import execute_sql_query, \
+from etl.utilities.db_utility import execute_sql_query, \
     execute_sql_query_and_get_result
-from etl.sql_queries import create_staging_calendar_table, \
+from etl.utilities.sql_queries import create_staging_calendar_table, \
     copy_calendar_data_staging_table, \
     drop_staging_calendar_table, \
     drop_staging_covid_table, \
