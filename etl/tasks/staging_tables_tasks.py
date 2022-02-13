@@ -146,6 +146,24 @@ def check_staging_tables_row_count_match_file():
                             "row count for at least one table.")
 
 
+def check_staging_tables_not_empty():
+    """
+    Checks if staging tables are not empty. Raises an exception
+    if at least one staging table is empty.
+    :return:
+    """
+    table_names = ['tokyo_airbnb_calendar', 'covid_japan_by_prefecture']
+
+    # Get staging tables row count.
+    for table in table_names:
+        count = int(execute_sql_query_and_get_result(
+            count_rows.format(table)
+        )[0][0])
+
+        if count <= 0:
+            raise Exception("At least one staging table is empty.")
+
+
 def remove_duplicates_from_staging_tables():
     """
     Removes duplicate rows from staging tables.
@@ -177,10 +195,13 @@ def remove_duplicates_from_staging_tables():
 def run_quality_checks_for_staging_tables():
     """
     Runs quality checks on existing staging tables.
-    The first check confirms the staging tables row count
-    matches the files' row count. The second check
-    removes duplicates rows from staging tables.
+    The checks to run:
+    - confirm the staging tables row count
+    matches the files' row count.
+    - confirm staging tables are not empty.
+    - remove duplicates rows from staging tables.
     :return:
     """
     check_staging_tables_row_count_match_file()
+    check_staging_tables_not_empty()
     remove_duplicates_from_staging_tables()

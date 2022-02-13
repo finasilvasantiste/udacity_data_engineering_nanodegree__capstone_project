@@ -5,6 +5,7 @@ def run_etl_pipeline():
     """
     Runs the etl pipeline to create
     the source-of-truth Airbnb Tokyo Covid database.
+    Also creates etl pipeline graph.
     :return:
     """
     flow.run()

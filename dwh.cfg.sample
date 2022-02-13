@@ -1,4 +1,7 @@
 [S3]
+BUCKET_NAME=(your bucket name, region must match redshift cluster region)
+CALENDAR_DATA_KEY=calendar.csv
+COVID_JPN_DATA_KEY=covid_jpn_prefecture.csv
 CALENDAR_DATA=(your bucket location, region must match redshift cluster region)
 COVID_JPN_DATA=(your bucket location, region must match redshift cluster region)
 
