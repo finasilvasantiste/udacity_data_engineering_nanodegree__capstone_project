@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS covid_japan_by_prefecture;
 create_staging_calendar_table = ("""
 CREATE TABLE tokyo_airbnb_calendar (
    listing_id NUMERIC PRIMARY KEY,
-   date TIMESTAMP,
+   date DATE,
    available BOOLEAN,
    price VARCHAR,
    adjusted_price VARCHAR,
@@ -20,7 +20,7 @@ CREATE TABLE tokyo_airbnb_calendar (
 
 create_staging_covid_table = ("""
 CREATE TABLE covid_japan_by_prefecture (
-   date TIMESTAMP,
+   date DATE,
    Prefecture VARCHAR,
    Positive NUMERIC,
    Tested NUMERIC,
@@ -52,3 +52,22 @@ SELECT COUNT(*) FROM {};
 distinct_count_rows = ("""
 SELECT DISTINCT COUNT(*) FROM {};
 """)
+
+covid_data_filtered_by_tokyo = ("""
+SELECT * 
+FROM covid_japan_by_prefecture
+WHERE prefecture ILIKE '%tokyo%';
+""")
+
+# create_covid_tokyo_table = ("""
+# CREATE TABLE covid_japan_by_prefecture (
+#    date DATE,
+#    Prefecture VARCHAR,
+#    Positive NUMERIC,
+#    Tested NUMERIC,
+#    Discharged NUMERIC,
+#    Fatal NUMERIC,
+#    Hosp_require VARCHAR,
+#    Hosp_severe VARCHAR
+# );
+# """)

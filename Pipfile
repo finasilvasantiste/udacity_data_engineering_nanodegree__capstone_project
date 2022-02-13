@@ -10,6 +10,7 @@ boto3 = "*"
 pandas = "*"
 prefect = {extras = ["viz"], version = "*"}
 redshift-connector = {extras = ["full"], version = "*"}
+sqlalchemy = "*"
 
 [dev-packages]
 

@@ -42,6 +42,8 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 ## Data Model
 
 ### Table `dim_aggregated_listings_availability`
+- Contains count of total listings (both available and unavailable listings) and 
+  count of only available listings by dates for listings in Tokyo.
 - Columns: `date` (timestamp, primary key), `listings_total` (integer), `listings_available` (integer)
    - `listings_total` is the `COUNT()` of all existing listings for a specific date.
    - `listings_available` is the `COUNT()` of all listings `where available == True` for a specific date.
@@ -62,7 +64,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
   
 ## Technology Stack
 - Dataflow Automation Tool: [Prefect](https://www.prefect.io/).
-   - In this course the only dataflow automation tool we've worked with is Apache Airflow. While that's probably the most commonly used one, it's not the only tool of that type. [Prefect](https://www.prefect.io/) provides all the functionality Airflow provides while offering a slimmed down version that runs just as any other Python file without requiring neither a dedicated server nor a UI. The ease-of-setup and ease-of-use is what makes me prefer Prefect over Airflow for this project.
+   - In this course the only dataflow automation tool we've worked with is Apache Airflow. While that's probably the most commonly used one, it's not the only tool of that type. [Prefect](https://www.prefect.io/) provides all the functionality Airflow provides while offering a slimmed down version that runs just as any other Python file without requiring neither a dedicated server nor a UI. The ease-of-setup and ease-of-use is what makes me prefer Prefect to Airflow for this project.
 - DB: Amazon Redshift.
    - This where the source-of-truth database and staging tables live. 
 - File Storage: S3.
