@@ -57,5 +57,5 @@ def create_table_tokyo_listings_availability_and_covid_rates():
         tokyo_listings_availability_and_covid_rates
     )
 
-    # upload_df_to_table(df=result_df,
-    #                    table_name='dim_tokyo_aggregated_listings_availability')
+    upload_df_to_table(df=result_df,
+                       table_name='fact_tokyo_listings_availability_and_covid_rates')
