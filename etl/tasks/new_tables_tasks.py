@@ -1,6 +1,7 @@
 from prefect import task
 from etl.utilities.sql_queries import \
-    covid_data_filtered_by_tokyo
+    covid_data_filtered_by_tokyo, \
+    aggr_tokyo_listings_availability
 from etl.utilities.db_utility import \
     execute_sql_query_and_get_result_as_df, \
     upload_df_to_table
@@ -20,3 +21,18 @@ def create_table_tokyo_covid_by_prefecture():
     upload_df_to_table(df=result_df,
                        table_name='dim_tokyo_covid_by_prefecture')
 
+
+@task
+def create_table_tokyo_aggr_listings_availability():
+    """
+    Creates table that contains count of total listings
+    (both available and unavailable listings) and count of only
+    available listings by dates for listings in Tokyo.
+    :return:
+    """
+    result_df = execute_sql_query_and_get_result_as_df(
+        aggr_tokyo_listings_availability
+    )
+
+    upload_df_to_table(df=result_df,
+                       table_name='dim_tokyo_aggregated_listings_availability')

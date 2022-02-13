@@ -54,20 +54,22 @@ SELECT DISTINCT COUNT(*) FROM {};
 """)
 
 covid_data_filtered_by_tokyo = ("""
-SELECT * 
+SELECT DISTINCT "date", tested as tested_total, positive as tested_positive
 FROM covid_japan_by_prefecture
-WHERE prefecture ILIKE '%tokyo%';
+WHERE prefecture ILIKE '%tokyo%'
+AND "date" BETWEEN '2021-10-28' AND '2021-12-31'
+ORDER BY "date" ASC;
 """)
 
-# create_covid_tokyo_table = ("""
-# CREATE TABLE covid_japan_by_prefecture (
-#    date DATE,
-#    Prefecture VARCHAR,
-#    Positive NUMERIC,
-#    Tested NUMERIC,
-#    Discharged NUMERIC,
-#    Fatal NUMERIC,
-#    Hosp_require VARCHAR,
-#    Hosp_severe VARCHAR
-# );
-# """)
+aggr_tokyo_listings_availability = ("""
+SELECT total."date", listings_total_count, listings_available_count
+FROM (SELECT "date", COUNT(DISTINCT listing_id) as listings_total_count
+FROM tokyo_airbnb_calendar
+WHERE "date" BETWEEN '2021-10-28' AND '2021-12-31'
+GROUP BY "date" ) total JOIN
+(SELECT "date", COUNT(DISTINCT listing_id) as listings_available_count
+FROM tokyo_airbnb_calendar
+WHERE "date" BETWEEN '2021-10-28' AND '2021-12-31'
+AND available is True
+GROUP BY "date") available ON total."date"=available."date";
+""")

@@ -8,7 +8,8 @@ from etl.tasks.staging_tables_tasks import \
     load_covid_data_into_staging_table, \
     run_quality_checks_for_staging_tables
 from etl.tasks.new_tables_tasks import \
-    create_table_tokyo_covid_by_prefecture
+    create_table_tokyo_covid_by_prefecture, \
+    create_table_tokyo_aggr_listings_availability
 
 
 # CREATE FLOW/ETL PIPELINE.
@@ -48,5 +49,9 @@ flow.set_dependencies(
 # 3) CREATE NEW TABLES FOR SOURCE-OF-TRUTH DB.
 flow.set_dependencies(
     task=create_table_tokyo_covid_by_prefecture,
+    upstream_tasks=[run_quality_checks_for_staging_tables])
+
+flow.set_dependencies(
+    task=create_table_tokyo_aggr_listings_availability,
     upstream_tasks=[run_quality_checks_for_staging_tables])
 
