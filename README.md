@@ -3,11 +3,14 @@
 # Index
 - [Project Write Up](./README.md#project-write-up)
    - [Scenario/Use Case](./README.md#scenariouse-case)
+   - [Goal](./README.md#goal)
    - [Datasets](./README.md#datasets)
    - [Data Model](./README.md#data-model)
    - [Technology Stack](./README.md#technology-stack)
    - [ETL Pipeline](./README.md#etl-pipeline)  
-   - [ETL Pipeline Graph](./README.md#etl-pipeline-graph)  
+      - [Steps](./README.md#steps)  
+      - [Frequency](./README.md#frequency)  
+      - [Graph](./README.md#graph)  
 - [Project Setup](./README.md#project-setup)
 - [How to run the app](./README.md#how-to-run-the-app)
 
@@ -16,7 +19,8 @@
 Business Analysts at Airbnb want to understand the impact COVID-19 had on bookings and listings 
 during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth database with the relevant data.
 
-### Questions analysts need to answer
+## Goal
+Provide analysts with datasets to be able to answer following questions:
 1. Trends to find out:
    - Active vs inactive listings
    - Bookings
@@ -79,6 +83,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 into the staging tables in the redshift cluster. (AWS cloud technology is optimized to work seamlessly with each other.) 
 
 ## ETL Pipeline
+### Steps
 1. Load datasets into staging tables:
    - The airbnb listings calendar data living on S3 is loaded into the staging table `tokyo_airbnb_calendar`.
    - The covid japan data living on S3 is loaded into the staging table `covid_japan_by_prefecture`. 
@@ -90,7 +95,12 @@ into the staging tables in the redshift cluster. (AWS cloud technology is optimi
    - Use table `covid_japan_by_prefecture` to create the data for `dim_tokyo_covid_by_prefecture` table with columns as described in the Data Model.
    - Use table `dim_tokyo_aggregated_listings_availability` and table `dim_tokyo_covid_by_prefecture` to create table `fact_tokyo_listings_availability_and_covid_rate` with columns as described in the Data Model.
 
-## ETL Pipeline Graph
+### Frequency
+How often the ETL pipeline should be run depends on the analyst's need for up-to-date data and the
+update frequency of the source datasets. If the source datasets are updated daily, and the analysts
+require the most up-to-date data, scheduling the ETL pipeline to run once a day could meet their needs.
+
+### Graph
 ![ETL Pipeline Graph](./graph.jpg?raw=true "Title")
 - A node represents a task, the name inside the node represents the task name. 
 - Task names match the function names in the codebase.
