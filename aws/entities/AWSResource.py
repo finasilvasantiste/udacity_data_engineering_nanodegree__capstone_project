@@ -1,5 +1,5 @@
 import boto3
-from aws.AWSEntity import AWSEntity
+from aws.entities.AWSEntity import AWSEntity
 
 
 class AWSResource(AWSEntity):

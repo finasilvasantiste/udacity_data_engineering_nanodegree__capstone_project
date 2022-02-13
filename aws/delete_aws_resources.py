@@ -1,13 +1,12 @@
-from aws.RedshiftCluster import RedshiftCluster
+from aws.redshift.RedshiftClusterFactory import RedshiftClusterFactory
 
 
 def delete_aws_redshift_resources():
     """
-    Deletes all newly created aws redshift resources.
+    Deletes redshift cluster and redshift resources.
     :return:
     """
-    redshift_cluster = RedshiftCluster()
-    redshift_cluster.delete_all_resources()
+    RedshiftClusterFactory.delete_redshift_cluster()
 
 
 if __name__ == "__main__":

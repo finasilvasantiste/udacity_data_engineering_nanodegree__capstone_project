@@ -1,8 +1,7 @@
 import configparser
-from aws.AWSClient import AWSClient
-from aws.AWSResource import AWSResource
+from aws.entities.AWSClient import AWSClient
+from aws.entities.AWSResource import AWSResource
 import pandas as pd
-import json
 import time
 import json
 

@@ -1,15 +1,14 @@
-from aws.RedshiftCluster import RedshiftCluster
+from aws.redshift.RedshiftClusterFactory import RedshiftClusterFactory
 
 
 def create_aws_redshift_resources():
     """
-    Creates all necessary aws redshift resources.
+    Creates redshift cluster and
+    all necessary aws redshift resources.
     Prints out cluster details at the end.
     :return:
     """
-    redshift_cluster = RedshiftCluster()
-    redshift_cluster.create_all_resources()
-    RedshiftCluster.describe_cluster()
+    RedshiftClusterFactory.create_redshift_cluster()
 
 
 if __name__ == "__main__":
