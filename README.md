@@ -10,8 +10,8 @@
    - [ETL Pipeline](./README.md#etl-pipeline)  
       - [Steps](./README.md#steps)  
       - [Frequency](./README.md#frequency)  
-      - [Graph](./README.md#graph)  
-      - [Different scenarios (thought experiment given by assignment)](./README.md#different-scenarios-thought-experiment-given-by-assignment)
+      - [Graph](./README.md#graph)
+   - [Different scenarios (thought experiment given by assignment)](./README.md#different-scenarios-thought-experiment-given-by-assignment)
 - [Project Setup](./README.md#project-setup)
 - [How to run the app](./README.md#how-to-run-the-app)
 
