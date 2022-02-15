@@ -1,7 +1,7 @@
 # Udacity Data Engineering Nanodegree - Capstone Project
 
 # Index
-- [Project Write Up](./README.md#project-write-up)
+- [Project Write Up](#project-write-up)
    - [Scenario/Use Case](./README.md#scenariouse-case)
    - [Goal](./README.md#goal)
    - [Datasets](./README.md#datasets)
