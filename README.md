@@ -2,18 +2,18 @@
 
 # Index
 - [Project Write Up](#project-write-up)
-   - [Scenario/Use Case](./README.md#scenariouse-case)
-   - [Goal](./README.md#goal)
-   - [Datasets](./README.md#datasets)
-   - [Data Model](./README.md#data-model)
-   - [Technology Stack](./README.md#technology-stack)
-   - [ETL Pipeline](./README.md#etl-pipeline)  
-      - [Steps](./README.md#steps)  
-      - [Frequency](./README.md#frequency)  
-      - [Graph](./README.md#graph)
-   - [Different scenarios (thought experiment given by assignment)](./README.md#different-scenarios-thought-experiment-given-by-assignment)
-- [Project Setup](./README.md#project-setup)
-- [How to run the app](./README.md#how-to-run-the-app)
+   - [Scenario/Use Case](#scenariouse-case)
+   - [Goal](#goal)
+   - [Datasets](#datasets)
+   - [Data Model](#data-model)
+   - [Technology Stack](#technology-stack)
+   - [ETL Pipeline](#etl-pipeline)  
+      - [Steps](#steps)  
+      - [Frequency](#frequency)  
+      - [Graph](#graph)
+   - [Different scenarios (thought experiment given by assignment)](#different-scenarios-thought-experiment-given-by-assignment)
+- [Project Setup](#project-setup)
+- [How to run the app](#how-to-run-the-app)
 
 # Project Write Up
 ## Scenario/Use Case
