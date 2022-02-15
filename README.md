@@ -11,6 +11,7 @@
       - [Steps](./README.md#steps)  
       - [Frequency](./README.md#frequency)  
       - [Graph](./README.md#graph)  
+      - [Different scenarios (thought experiment given by assignment)](./README.md#different-scenarios-thought-experiment-given-by-assignment)
 - [Project Setup](./README.md#project-setup)
 - [How to run the app](./README.md#how-to-run-the-app)
 
@@ -105,7 +106,7 @@ require the most up-to-date data, scheduling the ETL pipeline to run once a day 
 - A node represents a task, the name inside the node represents the task name. 
 - Task names match the function names in the codebase.
 
-## Different scenarios (thought experiments given by assignment)
+## Different scenarios (thought experiment given by assignment)
 How would I approach the problem differently under the following scenarios?:
 1. If the data was increased by 100x.
 2. If the pipelines were run on a daily basis by 7am.
