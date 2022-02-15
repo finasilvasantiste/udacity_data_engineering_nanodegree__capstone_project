@@ -169,8 +169,3 @@ Delete the aws redshift cluster and its necessary aws resources by running:
 ```
 bash scripts/delete_aws_redshift_cluster.sh
 ```
-
-## Create example chart using data from source-of-truth db
-```
-bash scripts/create_example_chart.sh
-```
