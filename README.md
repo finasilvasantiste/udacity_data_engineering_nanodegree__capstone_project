@@ -21,7 +21,7 @@ Business Analysts at Airbnb want to understand the impact COVID-19 had on bookin
 during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth database with the relevant data.
 
 ## Goal
-Provide analysts with a **source-of-truth database** for them to be able to get new insights.
+Provide analysts with a **source-of-truth database** for them to be able to run their analysis and get new insights.
 Topics of interest could include:
 - Active vs inactive listings trends.
 - Is there a negative correlation between positive COVID-19 cases and bookings or active listings?
