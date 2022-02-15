@@ -23,7 +23,7 @@ during the timespan of 2020-2021 in Tokyo, Japan. They need a source-of-truth da
 ## Goal
 Provide analysts with a **source-of-truth database** for them to be able to get new insights.
 Topics of interest could include:
-- Active vs inactive listings trends
+- Active vs inactive listings trends.
 - Is there a negative correlation between positive COVID-19 cases and bookings or active listings?
 - etc.
 
