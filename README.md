@@ -105,11 +105,6 @@ require the most up-to-date data, scheduling the ETL pipeline to run once a day 
 - A node represents a task, the name inside the node represents the task name. 
 - Task names match the function names in the codebase.
 
-## Example insights generated using source-of-truth db
-Covid cases in tokyo vs available listings in tokyo:
-![Ratios](./line_chart.png?raw=true "ratios")
-
-
 ## Different scenarios (thought experiments given by assignment)
 How would I approach the problem differently under the following scenarios?:
 1. If the data was increased by 100x.
